@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant crosshair database</title>
+  <link rel="stylesheet" href="11111.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<nav class="main-nav">
+  <div class="nav-container">
+    <h1 class="logo">VALORANT CRS</h1>
+    <ul class="nav-links">
+      <li><a href="#home-section">Homepage</a></li>
+      <li><a href="#crosshair-list">Crosshair Database</a></li>
+      <li><a href="#form-section">About us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home-section">
+  <div class="hero-content">
+    <h1>Customize your exclusive crosshair</h1>
+    <p>Explore the most suitable crosshair configuration scheme for your shooting style</p>
+  </div>
+</section>
+
+<article class="carousel-container" id="carousel-section">
+  <h2>Recommended crosshair configuration</h2>
+  <div class="carousel">
+    <div class="slides">
+
+      <div class="slide active">
+        <div class="slide-bg" style="background-image: url('assets/aspaslogo.png')"></div>
+        <div class="slide-content">
+          <h3>Aspas' crosshair configuration</h3>
+        </div>
+        <div class="slide-video">
+          <video controls autoplay muted playsinline>
+            <source src="assets/aspas.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('assets/zmjjkklogo.png')"></div>
+        <div class="slide-content">
+          <h3>Zmjjjkk's crosshair configuration</h3>
+        </div>
+        <div class="slide-video">
+          <video controls autoplay muted playsinline>
+            <source src="assets/zmjjkk.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('assets/tenzlogo.png')"></div>
+        <div class="slide-content">
+          <h3>Tenz's crosshair configuration</h3>
+        </div>
+        <div class="slide-video">
+          <video controls autoplay muted playsinline>
+            <source src="assets/tenz.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('assets/somethinglogo.png')"></div>
+        <div class="slide-content">
+          <h3>Something's crosshair configuration</h3>
+        </div>
+        <div class="slide-video">
+          <video controls autoplay muted playsinline>
+            <source src="assets/something.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-bg" style="background-image: url('assets/forsakenlogo.png')"></div>
+        <div class="slide-content">
+          <h3>Forsaken's crosshair configuration</h3>
+        </div>
+        <div class="slide-video">
+          <video controls autoplay muted playsinline>
+            <source src="assets/forsaken.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+    <div class="indicators"></div>
+  </div>
+</article>
+
+<section class="crosshair-list" id="crosshair-list">
+  <div class="search-bar" id="search-bar">
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search for player name or team name...">
+    </div>
+  </div>
+  <h2>Professional athlete's crosshair configuration</h2>
+  <div class="list-container" id="list-container"></div>
+</section>
+
+<section class="form-section" id="form-section">
+  <form id="config-form" class="crosshair-form">
+    <h2 class="form-title">Problem feedback</h2>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label for="email">Contact Email:</label>
+        <input type="email" id="email" name="email"
+               placeholder="name@example.com"
+               required
+               pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+      </div>
+
+      <div class="form-group">
+        <label for="problem-code">Wrong crosshair code:</label>
+        <input type="text" id="problem-code" name="problem-code"
+               placeholder="Input incorrect crosshair code"
+               required
+               pattern="^([0-9a-zA-Z];?)+$">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">problem description:</label>
+      <textarea id="description" name="description"
+                placeholder="Please provide a detailed description of the problem encountered (at least 20 words)"
+                minlength="20"
+                rows="5"
+                required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Feedback</button>
+  </form>
+</section>
+
+<footer class="main-footer">
+  <p>&copy; 2025 Valorant Crosshair Config. All Right Reserved</p>
+</footer>
+</body>
+</html>
