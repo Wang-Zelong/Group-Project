@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valorant crosshair database</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="11111.css">
   <script src="script.js"></script>
 </head>
@@ -109,43 +110,90 @@
 </section>
 
 <section class="form-section" id="form-section">
-  <form id="config-form" class="crosshair-form">
-    <h2 class="form-title">Problem feedback</h2>
+  <div class="container mt-5 mb-5" id="vue-root">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card bg-dark text-white">
+          <div class="card-header bg-danger text-white">
+            <h2 class="form-title mb-0">Problem feedback</h2>
+          </div>
+          <div class="card-body">
+            <form id="config-form" class="crosshair-form" @submit.prevent="onSubmit">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Contact Email:</label>
+                  <input type="email"
+                         class="form-control bg-secondary text-white border-0"
+                         id="email"
+                         name="email"
+                         placeholder="name@example.com"
+                         required
+                         pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                         v-model="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="problem-code" class="form-label">Wrong crosshair code:</label>
+                  <input type="text"
+                         class="form-control bg-secondary text-white border-0"
+                         id="problem-code"
+                         name="problem-code"
+                         placeholder="Input incorrect crosshair code"
+                         required
+                         pattern="^([0-9a-zA-Z];?)+$"
+                         v-model="problemCode">
+                </div>
+              </div>
 
-    <div class="form-grid">
+              <div class="mb-3">
+                <label for="description" class="form-label">Problem description:</label>
+                <textarea class="form-control bg-secondary text-white border-0"
+                          id="description"
+                          name="description"
+                          rows="5"
+                          minlength="20"
+                          placeholder="Please provide a detailed description of the problem encountered (at least 20 words)"
+                          required
+                          v-model="description"></textarea>
+              </div>
 
-      <div class="form-group">
-        <label for="email">Contact Email:</label>
-        <input type="email" id="email" name="email"
-               placeholder="name@example.com"
-               required
-               pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
-      </div>
-
-      <div class="form-group">
-        <label for="problem-code">Wrong crosshair code:</label>
-        <input type="text" id="problem-code" name="problem-code"
-               placeholder="Input incorrect crosshair code"
-               required
-               pattern="^([0-9a-zA-Z];?)+$">
+              <button type="submit" class="btn btn-danger w-100">Submit Feedback</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="description">problem description:</label>
-      <textarea id="description" name="description"
-                placeholder="Please provide a detailed description of the problem encountered (at least 20 words)"
-                minlength="20"
-                rows="5"
-                required></textarea>
-    </div>
-
-    <button type="submit" class="submit-btn">Submit Feedback</button>
-  </form>
+  </div>
 </section>
 
 <footer class="main-footer">
   <p>&copy; 2025 Valorant Crosshair Config. All Right Reserved</p>
 </footer>
 </body>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        email: '',
+        problemCode: '',
+        description: '',
+      };
+    },
+    methods: {
+      onSubmit() {
+        if (!this.email || !this.problemCode || !this.description) {
+          alert('❌ Please fill in all fields.');
+          return;
+        }
+
+        alert('✅ Feedback submitted successfully!');
+
+        this.email = '';
+        this.problemCode = '';
+        this.description = '';
+      }
+    }
+  }).mount('#vue-root');
+</script>
 </html>
